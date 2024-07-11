@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(w/desktop.png);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        #gambar {
+            margin-top: 20px;
+        }
+        #gambar img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LATIHAN</h1>
+        <input id="inputanTeks" placeholder="Masukkan Inputan">
+        <button onclick="tampilkan()">Tampilkan Foto</button>
+        <div id="gambar"></div>
+    </div>
+
+    <script>
+        function tampilkan(){
+            const imageSelektor = document.getElementById("inputanTeks");
+            const selectedValue = imageSelektor.value;
+            let urlGambar;
+        
+            switch (selectedValue){
+                case '13.24.017':
+                    urlGambar = "w/1.png";
+                    break;
+                case '13.24.003' :
+                    urlGambar = "w/2.png";
+                    break;
+                case '13.24.009' :
+                    urlGambar = "w/3.png";
+                    break;
+                case '13.24.016' :
+                    urlGambar = "w/4.png";
+                    break;
+                case '13.24.008' :
+                    urlGambar = "w/5.png";
+                    break;
+                case '13.24.002' :
+                    urlGambar = "w/6.png";
+                    break;
+                default: 
+                    urlGambar = "https://thumbs.dreamstime.com/b/error-rubber-stamp-word-error-inside-illustration-109026446.jpg";
+                    break;
+            }
+
+            const gambarDiv = document.getElementById("gambar");
+            gambarDiv.innerHTML = `<img src="${urlGambar}" alt="foto">`;
+        }
+    </script>
+</body>
+</html>
